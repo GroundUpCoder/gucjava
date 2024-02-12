@@ -1,0 +1,79 @@
+{
+    "name": "gucjava",
+    "displayName": "GUC Java",
+    "description": "GroundUpCoder's VSCode extension for Java",
+    "version": "0.0.0",
+    "publisher": "guc",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/groundupcoder/gucjava"
+    },
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./out/extension",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint \"src/**/*.ts\"",
+        "watch": "tsc -watch -p ./"
+    },
+    "contributes": {
+        "configuration": {
+            "title": "gucjava",
+            "properties": {
+                "gucjava.gucpath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to search for Java files. List of paths separated by ':'"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "gucjava.tokenize",
+                "title": "GUC JAVA: Tokenize Java Code"
+            },
+            {
+                "command": "gucjava.parse",
+                "title": "GUC JAVA: Parse Java Code"
+            },
+            {
+                "command": "gucjava.runfile",
+                "title": "GUC JAVA: Run Java File"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "gucjava.runfile",
+                "key": "f5",
+                "when": "editorLangId == java"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "gucjava.tokenize",
+                    "when": "editorLangId == java"
+                },
+                {
+                    "command": "gucjava.parse",
+                    "when": "editorLangId == java"
+                },
+                {
+                    "command": "gucjava.runfile",
+                    "when": "editorLangId == java"
+                }
+            ]
+        }
+    },
+    "activationEvents": [],
+    "devDependencies": {
+        "@types/vscode": "^1.75.0",
+        "ts-loader": "^9.4.2"
+    }
+}
