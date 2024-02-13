@@ -55,10 +55,11 @@ export type TokenTypeReservedKeyword = typeof ReservedKeywords[number];
 export type TokenTypeContextualKeyword = typeof ContextualKeywords[number];
 export type TokenTypeSymbol = typeof Symbols[number];
 export type TokenType = (
-  'ERROR-UNRECOGNIZED-TOKEN' | 'ERROR-BAD-STRING-LITERAL' |
+  'ERROR-UNRECOGNIZED-TOKEN' | 'ERROR-BAD-STRING-LITERAL' | 'ERROR-UNSUPPORTED-NUMBER-LITERAL' |
+  'ERROR-BAD-ESCAPE-SEQUENCE' | 'ERROR-BAD-CHAR-LITERAL' |
   'EOF' |
   'IDENTIFIER' |
-  'INT' | 'LONG' | 'FLOAT' | 'DOUBLE' | 'BOOLEAN' |
+  'INT' | 'LONG' | 'FLOAT' | 'DOUBLE' |
   'STRING' | 'CHAR' |
   TokenTypeReservedKeyword | TokenTypeSymbol
 );
