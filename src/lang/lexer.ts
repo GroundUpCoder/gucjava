@@ -208,7 +208,6 @@ export function lex(s: string): Token[] {
       }
       let type: TokenType = "INT";
       let value: number = 0;
-      console.log(`NEXT CHAR = ${JSON.stringify(s[index])}, index = ${index}`);
       if (index < len && (s[index] === '.' || s[index] === 'e' || s[index] === 'E')) {
         type = "DOUBLE";
         if (radix !== 10) {

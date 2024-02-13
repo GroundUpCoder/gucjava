@@ -16,6 +16,20 @@ export interface Range {
 
 // From: https://docs.oracle.com/javase/specs/jls/se17/html/jls-3.html#jls-Keyword
 
+export const SimpleModifierTypes = [
+  "public",
+  "protected",
+  "private",
+  "static ",
+  "abstract",
+  "final",
+  "native",
+  "synchronized",
+  "transient",
+  "volatile",
+  "strictfp",
+] as const;
+
 export const ReservedKeywords = [
   "abstract", "continue", "for", "new", "switch",
   "assert", "default", "if", "package", "synchronized",
@@ -51,6 +65,7 @@ export const Symbols = [
   "+=", "-=", "*=", "/=", "&=", "|=", "^=", "%=", "<<=", ">>=", ">>>=  ",
 ] as const;
 
+export type SimpleModifierType = typeof SimpleModifierTypes[number];
 export type TokenTypeReservedKeyword = typeof ReservedKeywords[number];
 export type TokenTypeContextualKeyword = typeof ContextualKeywords[number];
 export type TokenTypeSymbol = typeof Symbols[number];
@@ -67,6 +82,10 @@ export type TokenValue = null | boolean | number | string;
 
 export const SymbolsMap: Map<string, TokenTypeSymbol> = new Map(
   Symbols.map(symbol => [symbol, symbol])
+);
+
+export const SimpleModifierTypesMap: Map<string, SimpleModifierType> = new Map(
+  SimpleModifierTypes.map(symbol => [symbol, symbol])
 );
 
 export const ReservedKeywordsMap: Map<string, TokenTypeReservedKeyword> = new Map(
